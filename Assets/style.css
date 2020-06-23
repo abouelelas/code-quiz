@@ -1,0 +1,49 @@
+div {
+  font-family: Helvetica, Arial,  sans-serif;
+  padding: 60px;
+  text-align: center;
+  display: block;
+  text-shadow: 2px 2px green;
+}
+p{
+  text-align: center;
+  color: red;
+  text-shadow: 2px 2px green;
+  margin-right: auto;
+  margin-left: auto;
+}
+body {
+font-size: 50px;
+color: red;
+display: block;
+text-shadow: 2px 2px green;
+text-align: center;
+padding-top: 50px;
+margin-left: auto;
+margin-right: auto;
+width: 50%;
+animation: fadein 5s;
+}
+.btn {
+padding: 20px;
+position: initial;
+width: 50%;
+display: block;
+margin-left: auto;
+margin-right: auto;
+text-decoration: none;
+color:red;
+}
+.btn:hover {
+cursor: pointer;
+box-shadow: 0 0.4rem 1.4rem 0 red;
+transform: translateY(-0.1rem);
+transition: transform 150ms;
+}
+.background-image {
+  animation: fadein 5s;
+}
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
