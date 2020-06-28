@@ -4,38 +4,44 @@ div {
   text-align: center;
   display: block;
   text-shadow: 2px 2px green;
-}
-p{
-  text-align: center;
-  color: red;
-  text-shadow: 2px 2px green;
-  margin-right: auto;
-  margin-left: auto;
+  
 }
 body {
-font-size: 50px;
-color: red;
-display: block;
-text-shadow: 2px 2px green;
-text-align: center;
-padding-top: 50px;
-margin-left: auto;
-margin-right: auto;
-width: 50%;
-animation: fadein 5s;
+  font-size: 50px;
+  color: red;
+  display: block;
+  text-shadow: 2px 2px green;
+  text-align: center;
+  animation: fadein 5s;
+  background-color: lightyellow
 }
 .btn {
-padding: 20px;
-position: initial;
-width: 50%;
-display: block;
-margin-left: auto;
-margin-right: auto;
-text-decoration: none;
-color:red;
-padding: 5px 5px;
-margin-top: 20px;
-  font-size:50x;
+  padding: 20px;
+  position: initial;
+  width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: none;
+  color:red;
+  padding: 5px 5px;
+  margin-top: 20px;
+  font-size:50px;
+  text-align: center;
+  cursor: pointer;
+  outline: green;
+  border: 20px;
+  border-radius: 15px;
+  background-color: #0E7126;
+}
+button{
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: none;
+  color:red;
+  padding: 10px 10px;
+  margin-top: 20px;
+  font-size: 50px;
   text-align: center;
   cursor: pointer;
   outline: green;
@@ -45,6 +51,12 @@ margin-top: 20px;
 }
 .btn:hover {
 cursor: pointer;
+box-shadow: 0 0.4rem 1.4rem 0 red;
+transform: translateY(-0.1rem);
+transition: transform 150ms;
+}
+button:hover{
+  cursor: pointer;
 box-shadow: 0 0.4rem 1.4rem 0 red;
 transform: translateY(-0.1rem);
 transition: transform 150ms;
