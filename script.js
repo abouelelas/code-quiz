@@ -8,20 +8,11 @@
 // a function to end the quiz
 // a function to save high scores in local storage and to display them from local storage
 // create a list of questions and answers
-function setTime() {
-    var timerInterval = setInterval(function() {
-        secondsLeft--;
-        time.textContent = `Time Remaining: ${secondsLeft} seconds`; 
-        if(secondsLeft === 0) {
-            clearInterval(timerInterval);
-            alert("Time's up!");
-        }
-    }, 1000);
-}
-
+// var time = questions.length * 15;
+// var timerId;
     var questionList = [
     {
-        "question": "What does Buon Giorno mean in English? ",
+        "question": "What does Buon Giorno mean? ",
         "a": "Good Morning",
         "b": "Good Night",
         "c": "Good Afternoon",
@@ -30,13 +21,49 @@ function setTime() {
         "userAnswer": null
     },
     {
-        "question": "What does Grazie mean in English?",
+        "question": "What does Grazie mean?",
         "a": "That's it.",
         "b": "Let's go",
         "c": "Thank you",
         "d": "You're Welcome",
         "correct": "c",
         "userAnswer": null
+    },
+    {
+        "question": "Which of the following means red?",
+        "a": "bianco",
+        "b": "blu",
+        "c": "giallo",
+        "d": "rosso",
+        "correct": "d",
+        "userAnswer": null
+    },
+    {
+    "question": "How would you say the number six?",
+    "a": "sei",
+    "b": "uno",
+    "c": "tre",
+    "d": "due",
+    "correct": "a",
+    "userAnswer": null
+    },
+    {
+        "question": "How would you say restaurant in Italian?",
+        "a": "ristoranto",
+        "b": "ristorante",
+        "c": "ristoranta",
+        "d": "ristorantes",
+        "correct": "b",
+        "userAnswer": null
+    },
+    {
+    "question": "What does Arrivederci mean?",
+    "a": "Good Luck",
+    "b": "Have a good trip",
+    "c": "Thank you",
+    "d": "Good Bye",
+    "correct": "d",
+    "userAnswer": null
     }
 ];
 
@@ -56,6 +83,7 @@ var score = document.body.querySelector("#score");
 var questionIndex = 0;
 
 function buttonHandler(event) {
+    
     var button = event.target;
    
     var userAnswer = button.getAttribute("data-answer");
@@ -71,7 +99,7 @@ function buttonHandler(event) {
         questionIndex++;
             initializeQuestion();
             score.textContent= "";
-        }, 4000);
+        }, 1000);
     }
     else{
         score.textContent = "You got it wrong";
@@ -79,11 +107,28 @@ function buttonHandler(event) {
             questionIndex++;
             initializeQuestion();
             score.textContent= "";
-        }, 4000);
+        }, 1000);
     }
 }
+var secondsLeft = 60;
+function setTime() {
+    var timerInterval = setInterval(function() {
+        secondsLeft--;
+        time.textContent = `  Remaining: ${secondsLeft} seconds`; 
+        if(secondsLeft === 0) {
+            clearInterval(timerInterval);
+            alert("Game Over");
+        }
+    }, 1000);
+}
 var startBtn = document.querySelector("#start");
-startBtn.addEventListener("click",initializeQuestion);
+
+// startBtn.addEventListener("click",initializeQuestion);
+startBtn.addEventListener("click", function (event) {
+    setTime();
+    initializeQuestion()
+
+});
 buttonA.addEventListener("click",buttonHandler);
 buttonB.addEventListener("click",buttonHandler);
 buttonC.addEventListener("click",buttonHandler);
@@ -107,4 +152,3 @@ function initializeQuestion(){
     buttonD.setAttribute("data-question", questionIndex);
 }
 
-initializeQuestion();

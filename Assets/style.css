@@ -1,13 +1,20 @@
 div {
   font-family: Helvetica, Arial,  sans-serif;
-  padding: 60px;
+  padding: 20px;
   text-align: center;
   display: block;
   text-shadow: 2px 2px green;
+  font-size: 30px;
+  color: red;
+  display: block;
+  text-shadow: 2px 2px green;
+  text-align: center;
+  animation: fadein 5s;
+  background-color: lightyellow
   
 }
 body {
-  font-size: 50px;
+  font-size: 30px;
   color: red;
   display: block;
   text-shadow: 2px 2px green;
@@ -16,7 +23,6 @@ body {
   background-color: lightyellow
 }
 .btn {
-  padding: 20px;
   position: initial;
   width: 50%;
   display: block;
