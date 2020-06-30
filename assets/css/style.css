@@ -1,5 +1,14 @@
+.start {
+  display: flex;
+  width: 100%;
+}
+.timer {
+  display: flex;
+  align-items: center;
+}
+
 div {
-  font-family: Helvetica, Arial,  sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   padding: 20px;
   text-align: center;
   display: block;
@@ -10,8 +19,7 @@ div {
   text-shadow: 2px 2px green;
   text-align: center;
   animation: fadein 5s;
-  background-color: lightyellow
-  
+  background-color: lightyellow;
 }
 body {
   font-size: 30px;
@@ -20,7 +28,7 @@ body {
   text-shadow: 2px 2px green;
   text-align: center;
   animation: fadein 5s;
-  background-color: lightyellow
+  background-color: lightyellow;
 }
 .btn {
   position: initial;
@@ -29,22 +37,22 @@ body {
   margin-left: auto;
   margin-right: auto;
   text-decoration: none;
-  color:red;
+  color: red;
   padding: 5px 5px;
   margin-top: 20px;
-  font-size:50px;
+  font-size: 50px;
   text-align: center;
   cursor: pointer;
   outline: green;
   border: 20px;
   border-radius: 15px;
-  background-color: #0E7126;
+  background-color: #0e7126;
 }
-button{
+button {
   margin-left: auto;
   margin-right: auto;
   text-decoration: none;
-  color:red;
+  color: red;
   padding: 10px 10px;
   margin-top: 20px;
   font-size: 50px;
@@ -53,24 +61,28 @@ button{
   outline: green;
   border: 20px;
   border-radius: 15px;
-  background-color: #0E7126;
+  background-color: #0e7126;
 }
 .btn:hover {
-cursor: pointer;
-box-shadow: 0 0.4rem 1.4rem 0 red;
-transform: translateY(-0.1rem);
-transition: transform 150ms;
-}
-button:hover{
   cursor: pointer;
-box-shadow: 0 0.4rem 1.4rem 0 red;
-transform: translateY(-0.1rem);
-transition: transform 150ms;
+  box-shadow: 0 0.4rem 1.4rem 0 red;
+  transform: translateY(-0.1rem);
+  transition: transform 150ms;
+}
+button:hover {
+  cursor: pointer;
+  box-shadow: 0 0.4rem 1.4rem 0 red;
+  transform: translateY(-0.1rem);
+  transition: transform 150ms;
 }
 .background-image {
   animation: fadein 5s;
 }
 @keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

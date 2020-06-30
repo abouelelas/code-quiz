@@ -75,7 +75,7 @@ var buttonB = document.body.querySelector("#button-b");
 var buttonC = document.body.querySelector("#button-c");
 var buttonD = document.body.querySelector("#button-d");
 
-var score = document.body.querySelector("#score");
+var scores = document.body.querySelector("#scores");
 
 var questionIndex = 0;
 
@@ -99,33 +99,55 @@ function buttonHandler(event) {
     else {
         score.textContent = "You got it wrong";
         setTimeout(function () {
-            questionIndex++;
-            beginQuestion();
-            score.textContent = "";
-            secondsLeft = secondsLeft - 15;
+            if (questionIndex < questionList.length) {
+                secondsLeft = secondsLeft - 5;
+                if (secondsLeft <= 0) {
+                    time.textContent = `  Remaining: 0 seconds`;
+                    gameOver();
+                }
+                time.textContent = `  Remaining: ${secondsLeft} seconds`;
+                questionIndex++;
+                beginQuestion();
+                score.textContent = "";
+            } else {
+                beginQuestion();
+            }
+
         }, 1000);
 
     }
 }
+
+var gameOver = function gameOver(interval) {
+    clearInterval(interval);
+    alert("Game Over");
+    document.getElementById("italian-flag").style.display = "inline-block";
+    document.getElementById("instructions").style.display = "block";
+    document.getElementById("start").style.display = "block";
+}
+
 var secondsLeft = 60;
 function setTime() {
     var timerInterval = setInterval(function () {
         secondsLeft--;
         time.textContent = `  Remaining: ${secondsLeft} seconds`;
-        if (secondsLeft === 0) {
-            clearInterval(timerInterval);
-            alert("Game Over");
+        if (secondsLeft <= 0) {
+            gameOver(timerInterval);
         }
-    }, 1000);
+
+    }
+        , 1000);
 }
 var startBtn = document.querySelector("#start");
 
-// startBtn.addEventListener("click",initializeQuestion);
 startBtn.addEventListener("click", function (event) {
+    document.getElementById("italian-flag").style.display = "none";
+    document.getElementById("instructions").style.display = "none";
+    document.getElementById("start").style.display = "none";
     setTime();
     beginQuestion()
-
 });
+
 buttonA.addEventListener("click", buttonHandler);
 buttonB.addEventListener("click", buttonHandler);
 buttonC.addEventListener("click", buttonHandler);
@@ -149,3 +171,28 @@ function beginQuestion() {
     buttonD.setAttribute("data-question", questionIndex);
 }
 
+// get value of input box
+var initials = initialsEl.value.trim();
+// make sure value wasn't empty
+if (initials !== "") {
+    // get saved scores from localstorage, or if not any, set to empty array
+    var highscores =
+        JSON.parse(window.localStorage.getItem("scores")) || [];
+    // format new score object for current user
+    var newScore = {
+        score: time,
+        initials: initials
+    };
+    // save to localstorage
+    score.push(newScore);
+    window.localStorage.setItem("scores", JSON.stringify(score));
+    // redirect to next page
+    window.location.href = "highscores.html";
+}
+
+function checkForEnter(event) {
+    // "13" represents the enter key
+    if (event.key === "Enter") {
+        saveHighscore();
+    }
+}
