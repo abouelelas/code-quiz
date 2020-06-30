@@ -76,7 +76,7 @@ var buttonC = document.body.querySelector("#button-c");
 var buttonD = document.body.querySelector("#button-d");
 
 var scores = document.body.querySelector("#scores");
-// var initialsEl = document.getElementById("initials");
+var initialsEl = document.getElementById("initials");
 var questionIndex = 0;
 
 function buttonHandler(event) {
