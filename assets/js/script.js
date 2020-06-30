@@ -76,7 +76,7 @@ var buttonC = document.body.querySelector("#button-c");
 var buttonD = document.body.querySelector("#button-d");
 
 var scores = document.body.querySelector("#scores");
-
+// var initialsEl = document.getElementById("initials");
 var questionIndex = 0;
 
 function buttonHandler(event) {
@@ -89,19 +89,19 @@ function buttonHandler(event) {
     questionList[questionId]["userAnswer"] = userAnswer;
 
     if (questionList[questionId]["userAnswer"] === questionList[questionId]["correct"]) {
-        score.textContent = "You got it correct";
+        scores.textContent = "You got it correct";
         setTimeout(function () {
             questionIndex++;
             beginQuestion();
-            score.textContent = "";
+            scores.textContent = "";
         }, 1000);
     }
     else {
-        score.textContent = "You got it wrong";
+        scores.textContent = "You got it wrong";
         setTimeout(function () {
-            if (questionIndex < questionList.length) {
-                secondsLeft = secondsLeft - 5;
-                if (secondsLeft <= 0) {
+            if (questionIndex < questionList.length) { 
+                secondsLeft = secondsLeft - 10;
+               if (secondsLeft <= 0) {
                     time.textContent = `  Remaining: 0 seconds`;
                     gameOver();
                 }
@@ -171,28 +171,28 @@ function beginQuestion() {
     buttonD.setAttribute("data-question", questionIndex);
 }
 
-// get value of input box
-var initials = initialsEl.value.trim();
-// make sure value wasn't empty
-if (initials !== "") {
-    // get saved scores from localstorage, or if not any, set to empty array
-    var highscores =
-        JSON.parse(window.localStorage.getItem("scores")) || [];
-    // format new score object for current user
-    var newScore = {
-        score: time,
-        initials: initials
-    };
-    // save to localstorage
-    score.push(newScore);
-    window.localStorage.setItem("scores", JSON.stringify(score));
-    // redirect to next page
-    window.location.href = "highscores.html";
-}
+// // get value of input box
+// var initials = initialsEl.value.trim();
+// // make sure value wasn't empty
+// if (initials !== "") {
+//     // get saved scores from localstorage, or if not any, set to empty array
+//     var highscores =
+//         JSON.parse(window.localStorage.getItem("scores")) || [];
+//     // format new score object for current user
+//     var newScore = {
+//         score: time,
+//         initials: initials
+//     };
+//     // save to localstorage
+//     score.push(newScore);
+//     window.localStorage.setItem("scores", JSON.stringify(score));
+//     // redirect to next page
+//     window.location.href = "highscores.html";
+// }
 
-function checkForEnter(event) {
-    // "13" represents the enter key
-    if (event.key === "Enter") {
-        saveHighscore();
-    }
-}
+// function checkForEnter(event) {
+//     // "13" represents the enter key
+//     if (event.key === "Enter") {
+//         saveHighscore();
+//     }
+// }
