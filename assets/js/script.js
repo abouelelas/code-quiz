@@ -76,7 +76,6 @@ var buttonC = document.body.querySelector("#button-c");
 var buttonD = document.body.querySelector("#button-d");
 
 var scores = document.body.querySelector("#scores");
-var initialsEl = document.getElementById("initials");
 var questionIndex = 0;
 
 function buttonHandler(event) {
@@ -170,7 +169,37 @@ function beginQuestion() {
     buttonC.setAttribute("data-question", questionIndex);
     buttonD.setAttribute("data-question", questionIndex);
 }
+var initialsEl = document.getElementById("initials");
+var submitBtn = document.querySelector("#submit");
+submitBtn.addEventListener("click", function(event){
+  saveHighscore();
+})
+function printHighscores() {
+    // get value of input box
+var initials = initialsEl.value.trim();
+// make sure value wasn't empty
+if (initials !== "") {
+    // get saved scores from localstorage, or if not any, set to empty array
+    var highscores =
+        JSON.parse(window.localStorage.getItem("scores")) || [];
+    // format new score object for current user
+    var newScore = {
+        score: time,
+        initials: initials
+    };
+    // save to localstorage
+    score.push(newScore);
+    window.localStorage.setItem("scores", JSON.stringify(scores));
+    // redirect to next page
+    window.location.href = "scores.html";
+}
 
+function checkForEnter(event) {
+    // "13" represents the enter key
+    if (event.key === "Enter") {
+        saveHighscore();
+    }
+}
 // // get value of input box
 // var initials = initialsEl.value.trim();
 // // make sure value wasn't empty
@@ -194,5 +223,5 @@ function beginQuestion() {
 //     // "13" represents the enter key
 //     if (event.key === "Enter") {
 //         saveHighscore();
-//     }
-// }
+//  }
+}
